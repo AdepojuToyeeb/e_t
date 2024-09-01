@@ -8,7 +8,35 @@ class ExpenseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Text(expense.title),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 16,
+        ),
+        child: Column(
+          children: [
+            Text(expense.title),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Text(
+                  '\$${expense.amount.toStringAsFixed(2)}',
+                ),
+                const Spacer(),
+                Row(
+                  children: [
+                    const Icon(Icons.access_alarms_outlined),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    Text(expense.date.toString())
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+      ),
     );
   }
 }
