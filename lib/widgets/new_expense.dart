@@ -1,3 +1,4 @@
+import 'package:expense_app/models/expense.dart';
 import 'package:flutter/material.dart';
 
 class NewExpense extends StatefulWidget {
@@ -13,13 +14,18 @@ class _NewExpenseState extends State<NewExpense> {
   final _titleController = TextEditingController();
   final _amountController = TextEditingController();
   final now = DateTime.now();
+  DateTime? _selectedDate;
 
-  void _presentDatePicker() {
-    showDatePicker(
-        context: context,
-        initialDate: now,
-        firstDate: DateTime(now.year - 1, now.month, now.day),
-        lastDate: now);
+  void _presentDatePicker() async {
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: DateTime(now.year - 1, now.month, now.day),
+      lastDate: now,
+    );
+    setState(() {
+      _selectedDate = pickedDate;
+    });
   }
 
   @override
@@ -53,16 +59,20 @@ class _NewExpenseState extends State<NewExpense> {
               ),
               const SizedBox(width: 16),
               Expanded(
-                  child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const Text("Selected Date"),
-                  IconButton(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(_selectedDate == null
+                        ? "No Date Selected"
+                        : formatter.format(_selectedDate!)),
+                    IconButton(
                       onPressed: _presentDatePicker,
-                      icon: const Icon(Icons.calendar_month))
-                ],
-              ))
+                      icon: const Icon(Icons.calendar_month),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
           Row(
