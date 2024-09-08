@@ -1,5 +1,6 @@
 import 'package:expense_app/widgets/expenses/expenses_list.dart';
 import 'package:expense_app/models/expense.dart';
+import 'package:expense_app/widgets/new_expense.dart';
 import 'package:flutter/material.dart';
 
 class Expenses extends StatefulWidget {
@@ -29,183 +30,35 @@ class _ExpensesState extends State<Expenses> {
       amount: 20.99,
       title: "Cinema",
       date: DateTime.now(),
-      category: Category.work,
+      category: Category.food,
     ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinemas",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    ),
-    Expense(
-      amount: 20.99,
-      title: "Cinema",
-      date: DateTime.now(),
-      category: Category.work,
-    )
   ];
+
+  void _openAddExpenseOverlay() {
+    showModalBottomSheet(
+        context: context,
+        builder: (ctx) {
+          return const NewExpense();
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:const Color.fromRGBO(255, 200, 10, 0.9),
-
+        backgroundColor: const Color.fromARGB(227, 42, 40, 54),
         title: const Text(
           "Expense Tracker",
-          style: TextStyle(fontSize: 18, color: Colors.red),
+          style: TextStyle(
+              fontSize: 18, color: Color.fromARGB(255, 255, 255, 255)),
         ),
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverlay,
+            color: Colors.white,
+            icon: const Icon(Icons.add),
+          )
+        ],
       ),
       body: Column(
         children: [
