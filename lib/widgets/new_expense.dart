@@ -84,7 +84,7 @@ class _NewExpenseState extends State<NewExpense> {
           TextField(
             controller: _titleController,
             maxLength: 50,
-            decoration: InputDecoration(label: Text("Title")),
+            decoration: const InputDecoration(label: Text("Title")),
           ),
           Row(
             children: [
@@ -93,8 +93,8 @@ class _NewExpenseState extends State<NewExpense> {
                   controller: _amountController,
                   maxLength: 50,
                   keyboardType: TextInputType.number,
-                  decoration:
-                      InputDecoration(prefixText: '\$ ', label: Text("Amount")),
+                  decoration: const InputDecoration(
+                      prefixText: '\$ ', label: Text("Amount")),
                 ),
               ),
               const SizedBox(width: 16),
