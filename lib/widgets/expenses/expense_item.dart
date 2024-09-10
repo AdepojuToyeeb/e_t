@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem({required this.expense, super.key});
+
   final Expense expense;
 
   @override
@@ -14,6 +15,7 @@ class ExpenseItem extends StatelessWidget {
           vertical: 16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(expense.title),
             const SizedBox(height: 20),
