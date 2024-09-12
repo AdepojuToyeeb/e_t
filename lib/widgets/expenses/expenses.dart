@@ -1,3 +1,4 @@
+import 'package:expense_app/widgets/chart/chart.dart';
 import 'package:expense_app/widgets/expenses/expenses_list.dart';
 import 'package:expense_app/models/expense.dart';
 import 'package:expense_app/widgets/new_expense.dart';
@@ -85,7 +86,9 @@ class _ExpensesState extends State<Expenses> {
         title: const Text(
           "Expense Tracker",
           style: TextStyle(
-              fontSize: 18, color: Color.fromARGB(255, 255, 255, 255)),
+            fontSize: 18,
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
         ),
         actions: [
           IconButton(
@@ -97,7 +100,7 @@ class _ExpensesState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Text("The Chart"),
+          Chart(expenses: _registeredExpenses),
           Expanded(
             child: mainContent,
           )
